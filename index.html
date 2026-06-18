@@ -143,7 +143,8 @@
                     That if i mashed all the poems and tears that lie within me i would be loved softly.
                     That what lived in my soul was not meant to be unmasked for what if no one listens.
                     But i choose to speak even if it bills the girl i used to be. I choose to speak for the girl who
-                    wrote letters no one heard. For it is a voice that matters because who am i without the words that make me who i am.
+                    wrote letters no one heard. For it is a voice that matters because who am i without the words that
+                    make me who i am.
                 </p>
             </div>
 
@@ -176,6 +177,12 @@
 
                 const music = document.getElementById("bgMusic");
                 document.addEventListener("click", () => {
+                    if (music.paused) {
+                        music.play().catch(error => {
+                            console.log("Audio gagal diputar:", error);
+                        });
+                    }
+                }, { once: true });
                 music.play().catch(error => {
                     console.log("Audio gagal diputar:", error);
                 });
